@@ -1,0 +1,1 @@
+A project aimed at implement linear time algorithms for the following problems on chordal graphs: recognition maximum clique maximum stable set minimum vertex coloring minimum vertex clique cover This will also involve implementing the Lexicographic Breadth First Search (LexBFS) algorithm. 
