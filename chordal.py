@@ -130,18 +130,18 @@ def max_independent_set_and_min_vertex_cover(G):
     n = len(order)
     vis = [False] * (max(G.nodes()) + 1)
 
-    s_max = []
+    independent_set = []
 
     for i in range(n):
         node = order[i]
         if vis[node] is False:
-            s_max.append(node)
+            independent_set.append(node)
             neighbors = list(G.neighbors(node))
             for neighbor in neighbors:
                 if vis[neighbor] is False:
                     vis[neighbor] = True
 
-    return len(s_max)
+    return len(independent_set)
 
 
 def maximum_independent_set(graph):
@@ -162,8 +162,8 @@ def maximum_independent_set(graph):
                         max_set = potential_set
         dp[v] = max_set
         print(f"DP[{v}] updated to: {dp[v]}")
-    max_independent_set = max(dp.values(), key=len)
-    return max_independent_set
+    s_max = max(dp.values(), key=len)
+    return s_max
 
 
 
