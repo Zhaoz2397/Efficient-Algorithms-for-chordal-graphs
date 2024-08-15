@@ -144,29 +144,6 @@ def max_independent_set_and_min_vertex_cover(G):
     return len(independent_set)
 
 
-def maximum_independent_set(graph):
-
-    ord = lex_bfs(graph)
-    dp = {v: {v} for v in graph.nodes()}
-
-    for v in reversed(ord):
-        max_set = dp[v]
-
-        for u in graph.nodes():
-            if u != v and not graph.has_edge(v, u) and ord.index(u) > ord.index(v):
-
-                potential_set = dp[u] | {v}
-
-                if all(not graph.has_edge(x, y) for x in potential_set for y in potential_set if x != y):
-                    if len(potential_set) > len(max_set):
-                        max_set = potential_set
-        dp[v] = max_set
-        print(f"DP[{v}] updated to: {dp[v]}")
-    s_max = max(dp.values(), key=len)
-    return s_max
-
-
-
 def complement_graph2choral(graph):
     ordering = lex_bfs(graph)
     ord_map = {node: i for i, node in enumerate(ordering)}
