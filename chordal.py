@@ -18,7 +18,7 @@ class MaxTuple:
     def __repr__(self):
         return repr(self.tup)
 
-#lexbfs
+#lexbfs algorithm
 def lex_bfs(graph):
     ordering = []
     marked = set()
