@@ -108,22 +108,6 @@ def chromatic_number_and_max_clique(G):
                 break
     return max(color) + 1
 
-def maximum_clique_chordal(graph):
-    ordering = lex_bfs(graph)
-    c_max = set()
-    visited = set()
-
-    for v in ordering:
-        if v in visited:
-            continue
-        neighbors = {u for u in graph.neighbors(v) if ordering.index(u) > ordering.index(v)}
-        c = {v} | neighbors
-        visited.update(c)
-        if len(c) > len(c_max):
-            c_max = c
-
-    return c_max
-
 
 def max_independent_set_and_min_vertex_cover(G):
     order = lex_bfs(G)[::-1]
